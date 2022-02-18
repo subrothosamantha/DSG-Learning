@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5 class="text-decoration-underline bg-primary mt-1"><b>let's learn about directives</b></h5>
+    
+    <!-- type of property binding based on condition
+       we can use this insted of *ngif in case of small tree
+    or we can use that -->
+    <h1 [hidden]="3>2">this is super</h1>
+
+    <p *ngIf="serverCreated else noserver">Nikhil is good boy</p>
+    <ng-template #noserver>
+       <p>Nikhil is a bad boy</p>
+    </ng-template>
+
+    <ul class="nav nav-pills">
+        <li [class.active]="viewMode=='map'" class="nav-item">
+          <a class="nav-link" aria-current="page" (click)="changeviewmode('map')">Listview</a>
+        </li>
+        <li [class.active]="viewMode=='list'" class="nav-item">
+          <a class="nav-link" (click)="changeviewmode('map')">MapView</a>
+        </li>
+      </ul>
+      <div [ngSwitch]="viewMode">
+        <p *ngSwitchCase="'map'" class="fw-bold">This is list view</p>
+
+        <p *ngSwitchCase="'list'" class="fw-bold">This is map view</p>
+      </div>
+
+
+      number<input type="number" [(ngModel)]="id">
+      course<input type="text" [(ngModel)]="name">
+      <button class="btn btn-primary m-3" (click)="addanother()">add</button>
+      <ul>
+          <li *ngFor="let c of course;index as i">{{c.id}} {{c.name}}</li>         
+      </ul>
+
+      
+      
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="databinding.component.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5 class="fw-bold text-decoration-underline bg-warning mt-1">let's learn about databinding</h5>
+    <h1>wellcome, {{name}} to {{place}}</h1>
+    <!--event binding-->
+    <button (click)="runthis()">clickME</button>
+    <hr>
+    <!-- <h3>{{userUpdating}}</h3>
+    <input class="form-control" (input)="inputParam($event)"> -->
+
+    <h3>{{userUpdating}}</h3>
+    <input class="form-control" [(ngModel)]="userUpdating">
+ 
+
+    <!--example of property binding-->
+    <input type="text" [value]="name">
+    <input [disabled]="!disable" type="text" [value]="name">
+     <hr><hr><hr>
+    <!--update only after button is clicked-->
+    
+    <input type="text" placeholder="enter your name" (input)="updateserver($event)">
+     <button class="btn btn-primary ml-2" (click)="onbuttonclickserverupdate()">update</button>
+     <h3>{{updatedservername}}</h3>
+     <br>
+     <!-- doing same using mgModel -->
+    <input type="text" placeholder="enter your name" [(ngModel)]="updateservernameusingng">
+    <button class="btn btn-primary ml-2" (click)="updateservernameusingngmethod()">update</button>
+    <h1>{{servercreationstatus}}</h1>
+
+    <!-- doing same with different systax -->
+    <br>
+    <div>
+        <input type="text" [ngModel]="userName" (ngModelChange)="updateUserName($event)">
+        <br><p>this is what you {{userName}}</p>
+    </div><br>
+    <div>
+        <input type="text" [(ngModel)]="customerName">
+        <br><p>this is what you {{customerName}}</p>
+    </div>
+
+
+</body>
+</html>
